@@ -4,7 +4,7 @@
 
 <main class="form-signin w-100 m-auto text-center bg-dark rounded ">
     
-    <img class="mb-4" src="{{ asset('images/82ba339b-832a-4caa-9b78-a21406d698d7-removebg-preview.png')}}" alt="" width="72" height="72">
+    <img class="mb-4" src="{{ asset('images/logo.png')}}" alt="" width="72" height="72">
     <h1 class="h3 mb-3 fw-normal text-white">Login</h1>
     <x-alert/>
 

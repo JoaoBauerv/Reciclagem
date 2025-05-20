@@ -34,7 +34,7 @@ class LoginController extends Controller
     
         // Se sucesso, redireciona para o dashboard ou outra rota
         $user = Auth::user(); // ou nem precisa, se não for usar a variável
-        return redirect()->route('carros.index')->with('success', 'Login realizado com sucesso!');
+        return redirect()->route('user.index')->with('success', 'Login realizado com sucesso!');
         
 
     }
@@ -47,4 +47,4 @@ class LoginController extends Controller
         // Redireciona para a página de login com mensagem de sucesso
         return redirect()->route('login')->with('success', 'Deslogado com sucesso!');
     }
-}
+} 

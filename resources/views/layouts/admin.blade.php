@@ -42,10 +42,11 @@
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         </a>
 
-
+        <img src="{{ asset('images/logo.png') }}"  class="img-fluid" width="100px" height="50px">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="" class="nav-link px-2 text-white mx-3">Carros</a></li>
-            {{-- <li><a href="{{ route('carros.create') }}" class="nav-link px-2 text-white mx-3 ">Anunciar Carro</a></li> --}}
+            <li><a href="" class="nav-link px-2 text-white mx-3">INICIO</a></li>
+            <li><a href="" class="nav-link px-2 text-white mx-3 ">PESAGEM</a></li>
+            <li><a href="" class="nav-link px-2 text-white mx-3">PREÇOS</a></li>
         </ul>
 
         {{-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -69,9 +70,9 @@
             </a>
             
             <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" href="{{ route('usuario.anuncios') }}">Meus Anúncios</a></li>
+                <li><a class="dropdown-item" >Meus Anúncios</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a href="{{ route('carros.create') }}" class="dropdown-item">Anunciar Carro</a></li>
+                <li><a  class="dropdown-item">Anunciar Carro</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item text-warning" href="{{ route('user.edit', auth()->user()->id) }}">Editar Perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
