@@ -46,7 +46,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="" class="nav-link px-2 text-white mx-3">INICIO</a></li>
             <li><a href="" class="nav-link px-2 text-white mx-3 ">PESAGEM</a></li>
-            <li><a href="" class="nav-link px-2 text-white mx-3">PREÇOS</a></li>
+            <li><a href="{{ route('material.index') }}" class="nav-link px-2 text-white mx-3">PREÇOS</a></li>
         </ul>
 
         {{-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -70,9 +70,9 @@
             </a>
             
             <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" >Meus Anúncios</a></li>
+                <li><a class="dropdown-item" >----</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a  class="dropdown-item">Anunciar Carro</a></li>
+                <li><a  class="dropdown-item">-----</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item text-warning" href="{{ route('user.edit', auth()->user()->id) }}">Editar Perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -99,7 +99,7 @@
               <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                   <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
               </a>
-              <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2025 CarrOnline, Inc</span>
+              <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2025 Reciclagem, Inc</span>
           </div>
       </footer>
     </div>

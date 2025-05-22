@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CarroController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MaterialController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,6 +30,13 @@ Route::delete('/delete-user/{user}', [UserController::class,'destroy'])->name('u
 
 
 Route::group(['middleware' => 'auth'], function () {
-
+    Route::get('/index-material', [MaterialController::class,'index'])->name('material.index');
+    Route::get('/show-material/{material}', [MaterialController::class,'show'])->name('material.show');
+    Route::get('/create-material', [MaterialController::class,'create'])->name('material.create');
+    Route::post('/store-material', [MaterialController::class,'store'])->name('material.store');
+    Route::get('/edit-material/{material}', [MaterialController::class,'edit'])->name('material.edit');
+    Route::put('/update-material/{material}', [MaterialController::class,'update'])->name('material.update');
+    Route::delete('/delete-material/{material}', [MaterialController::class,'destroy'])->name('material.destroy');
+    Route::get('/edit-material/{material}', [MaterialController::class,'edit'])->name('material.edit');
     
 });
