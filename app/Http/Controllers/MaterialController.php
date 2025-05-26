@@ -24,6 +24,31 @@ class MaterialController extends Controller
     {
         // Lógica para armazenar o material
         // ...
+        $request->validate([
+            'name' => 'required|string|max:255|unique:materials,name',
+            'quantity' => 'required|min:1',
+            'price' => 'required|numeric|min:0',
+            'type' => 'required|string|max:255',
+        ], [
+            'name.required' => 'O nome do material é obrigatório.',
+            'name.unique' => 'Esse nome de material já existe.',
+            'quantity.required' => 'A quantidade é obrigatória.',
+            'price.required' => 'O preço é obrigatório.',
+            'price.numeric' => 'O preço deve ser um número.',
+            'price.min' => 'O preço deve ser um valor positivo.',
+            'type.required' => 'O tipo de material é obrigatório.',
+        ]);
+
+        // Criar o material
+        material::create([
+            'name' => $request->name,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'type' => $request->type,
+
+        ]);
+        
+
         return redirect()->route('material.index')->with('success', 'Material criado com sucesso!');
     }
 
@@ -42,6 +67,26 @@ class MaterialController extends Controller
     public function update(Request $request, $id)
     {
         // Lógica para atualizar o material
+        $request->validate([
+            'name' => 'required|string|max:255|unique:materials,name,' . $id,
+            'quantity' => 'required|min:1',
+            'price' => 'required|numeric|min:0',
+            'type' => 'required|string|max:255',
+        ], [
+            'name.required' => 'O nome do material é obrigatório.',
+            'name.unique' => 'Esse nome de material já existe.',
+            'quantity.required' => 'A quantidade é obrigatória.',
+            'price.required' => 'O preço é obrigatório.',
+            'price.numeric' => 'O preço deve ser um número.',
+            'price.min' => 'O preço deve ser um valor positivo.',
+            'type.required' => 'O tipo de material é obrigatório.',
+        ]);
+         Material::findOrFail($id)->update([
+            'name' => $request->name,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'type' => $request->type,
+        ]);
         // ...
         return redirect()->route('material.index')->with('success', 'Material atualizado com sucesso!');
     }
@@ -49,7 +94,9 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         // Lógica para deletar o material
-        // ...
+        $material = Material::findOrFail($id);
+        $material->delete();
+
         return redirect()->route('material.index')->with('success', 'Material deletado com sucesso!');
     }
 }

@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->text('descricao')->nullable();
-            $table->integer('quantidade')->default(0);
+            $table->string('name');
+            $table->string('quantity')->default(0);
+            $table->integer('price')->default(0);
+            $table->string('type')->default('Outros');            
             $table->timestamps();
+
+            
         });
     }
 

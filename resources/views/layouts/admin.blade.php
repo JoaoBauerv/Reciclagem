@@ -47,6 +47,7 @@
             <li><a href="" class="nav-link px-2 text-white mx-3">INICIO</a></li>
             <li><a href="" class="nav-link px-2 text-white mx-3 ">PESAGEM</a></li>
             <li><a href="{{ route('material.index') }}" class="nav-link px-2 text-white mx-3">PREÇOS</a></li>
+            @auth<li><a href="{{ route('material.create') }}" class="nav-link px-2 text-white mx-3">CADASTRAR MATERIAL</a></li>@endauth
         </ul>
 
         {{-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
