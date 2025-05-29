@@ -13,6 +13,12 @@ class LoginController extends Controller
         
     }
 
+    // public function home()
+    // {
+    //     // Redireciona para a página inicial após o login
+    //     return redirect()->route('login.home');
+    // }
+
     public function loginProcess(LoginRequest $request)
     {    
 
@@ -34,7 +40,7 @@ class LoginController extends Controller
     
         // Se sucesso, redireciona para o dashboard ou outra rota
         $user = Auth::user(); // ou nem precisa, se não for usar a variável
-        return redirect()->route('user.index')->with('success', 'Login realizado com sucesso!');
+        return redirect()->route('users.home')->with('success', 'Login realizado com sucesso!');
         
 
     }

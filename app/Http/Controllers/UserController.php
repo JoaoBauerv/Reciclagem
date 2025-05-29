@@ -20,6 +20,11 @@ class UserController extends Controller
         return view('users.index', ['users' => $users]);
     }
 
+    public function home()
+    {
+        return view('users.home'); // Certifique-se de que a view exista
+    }
+
     public function show(User $user)
     {
         //carregar view

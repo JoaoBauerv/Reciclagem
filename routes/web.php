@@ -3,7 +3,9 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\PesagemController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -20,6 +22,8 @@ Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginProcess'])->name('login.process');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('login.destroy');
 
+Route::get('/home', [UserController::class, 'home'])->name('users.home');
+
 Route::get('/index-user', [UserController::class,'index'])->name('user.index');
 Route::get('/show-user/{user}', [UserController::class,'show'])->name('user.show');
 Route::get('/create-user', [UserController::class,'create'])->name('user.create');
@@ -27,6 +31,7 @@ Route::post('/store-user', [UserController::class,'store'])->name('user.store');
 Route::get('/edit-user/{user}', [UserController::class,'edit'])->name('user.edit');
 Route::put('/update-user/{user}', [UserController::class,'update'])->name('user.update');
 Route::delete('/delete-user/{user}', [UserController::class,'destroy'])->name('user.destroy');
+
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -38,5 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/update-material/{material}', [MaterialController::class,'update'])->name('material.update');
     Route::delete('/delete-material/{material}', [MaterialController::class,'destroy'])->name('material.destroy');
     Route::get('/edit-material/{material}', [MaterialController::class,'edit'])->name('material.edit');
-    
+    Route::get('/pesagem', [PesagemController::class, 'index'])->name('pesagem.index');
+    Route::get('/pesagem/create', [PesagemController::class, 'create'])->name('pesagem.create');
+    Route::post('/pesagem/store', [PesagemController::class, 'store'])->name('pesagem.store');
+    Route::get('/pesagem/{pesagem}/edit', [PesagemController::class, 'edit'])->name('pesagem.edit');
+    Route::put('/pesagem/{pesagem}', [PesagemController::class, 'update'])->name('pesagem.update');
 });
