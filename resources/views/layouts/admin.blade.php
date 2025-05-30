@@ -45,9 +45,12 @@
         <img src="{{ asset('images/logo.png') }}"  class="img-fluid" width="100px" height="50px">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="{{ route('users.home')}}" class="nav-link px-2 text-white mx-3">INICIO</a></li>
+            @auth
             <li><a href="{{ route('pesagem.index') }}" class="nav-link px-2 text-white mx-3 ">PESAGEM</a></li>
             <li><a href="{{ route('material.index') }}" class="nav-link px-2 text-white mx-3">PREÇOS</a></li>
-            @auth<li><a href="{{ route('material.create') }}" class="nav-link px-2 text-white mx-3">CADASTRAR MATERIAL</a></li>@endauth
+            <li><a href="{{ route('material.create') }}" class="nav-link px-2 text-white mx-3">CADASTRAR MATERIAL</a></li>
+            <li><a href="{{ route('clientes.home') }}" class="nav-link px-2 text-white mx-3">CLIENTES</a></li>
+            @endauth
         </ul>
 
         {{-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

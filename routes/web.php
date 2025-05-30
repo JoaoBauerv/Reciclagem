@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PesagemController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,9 +44,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/update-material/{material}', [MaterialController::class,'update'])->name('material.update');
     Route::delete('/delete-material/{material}', [MaterialController::class,'destroy'])->name('material.destroy');
     Route::get('/edit-material/{material}', [MaterialController::class,'edit'])->name('material.edit');
+    
     Route::get('/pesagem', [PesagemController::class, 'index'])->name('pesagem.index');
     Route::get('/pesagem/create', [PesagemController::class, 'create'])->name('pesagem.create');
     Route::post('/pesagem/store', [PesagemController::class, 'store'])->name('pesagem.store');
     Route::get('/pesagem/{pesagem}/edit', [PesagemController::class, 'edit'])->name('pesagem.edit');
     Route::put('/pesagem/{pesagem}', [PesagemController::class, 'update'])->name('pesagem.update');
+
+    Route::get('/cliente', [ClienteController::class, 'home'])->name('clientes.home');
+    Route::get('/clientes', [ClienteController::class, 'index'])->name('cliente.index');
+    Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('clientes.show');
+    Route::post('/store-cliente', [ClienteController::class, 'store'])->name('clientes.store');
+    Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+    Route::get('/cliente/create', [ClienteController::class, 'create'])->name('clientes.create');
+    Route::get('/clientes/{id}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+
 });

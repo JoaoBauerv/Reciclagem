@@ -16,7 +16,9 @@
                     <th scope="col">Preço</th>
                     <th scope="col">Unidade</th>
                     <th scope="col">Tipo</th>
+                    @auth 
                     <th scope="col">Ações</th>
+                    @endauth
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +28,7 @@
                     <td>{{ $material->price }}</td>
                     <td>{{ $material->quantity }}</td>
                     <td>{{ $material->type }}</td>
+                    @auth
                     <td class="d-flex gap-2">
                         <a href="{{ route('material.edit', $material->id) }}" class="btn btn-sm btn-warning">Editar</a>
                         <form action="{{ route('material.destroy', $material->id) }}" method="post">
@@ -34,6 +37,7 @@
                             <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
                         </form>
                     </td>
+                    @endauth
 </div>
                 </tr>
                 @endforeach
