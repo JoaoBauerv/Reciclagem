@@ -43,7 +43,10 @@
                 @endforeach
             </tbody>
         </table>
+
+        <a href="{{ route('materials.export.pdf') }}" class="btn btn-danger">Exportar PDF</a>
     </div>
+
 
 
 @endsection

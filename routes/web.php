@@ -44,6 +44,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/update-material/{material}', [MaterialController::class,'update'])->name('material.update');
     Route::delete('/delete-material/{material}', [MaterialController::class,'destroy'])->name('material.destroy');
     Route::get('/edit-material/{material}', [MaterialController::class,'edit'])->name('material.edit');
+
+    // EXPORTAR VIEW MATERIAL
+    Route::get('/materials/export/pdf', [MaterialController::class, 'exportPdf'])->name('materials.export.pdf');
     
     Route::get('/pesagem', [PesagemController::class, 'index'])->name('pesagem.index');
     Route::get('/pesagem/create', [PesagemController::class, 'create'])->name('pesagem.create');

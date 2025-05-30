@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Material;
 
+//  EXPORTAR MATERIAL
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 use Illuminate\Http\Request;
@@ -99,4 +101,16 @@ class MaterialController extends Controller
 
         return redirect()->route('material.index')->with('success', 'Material deletado com sucesso!');
     }
+
+
+    // EXPORTAR MATERIAL
+
+
+    public function exportPdf()
+    {
+        $materials = Material::all();
+        $pdf = Pdf::loadView('material.pdf', compact('materials'));
+        return $pdf->download('materiais.pdf');
+    }
+
 }
